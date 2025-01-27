@@ -3,7 +3,7 @@ import LeaderboardCard from "./LeaderboardCard";
 import { sortMovies } from "Helpers/sortMovies";
 
 export default function Leaderboard({ movies }: { movies: MovieItem[] }) {
-  const sortedDataDsc = sortMovies(movies, "rating",'dsc').splice(0, 5);
+  const sortedDataDsc = sortMovies([...movies], "rating",'dsc').splice(0, 5);
 
   return (
     <div className="leaderboard-container bg-white shadow-md rounded-md overflow-hidden max-w-screen mx-auto mt-16">

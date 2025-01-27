@@ -2,12 +2,12 @@ import { useQuery } from "react-query";
 import { GET_MOVIES_URL } from "../constant/service";
 import MovieList from "Component/Movie/MovieList";
 import Statistics from "Component/Statistics/OscarStatistics";
-import Sidebar from "Component/Shared/Sidebar";
 import Loading from "Component/Shared/Loading";
 import Leaderboard from "Component/Leaderboard/Leaderboard";
 import Filter from "Component/Filters/Search";
 import { useState } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
+import Error from "Component/Shared/Error";
 
 const retrieveMovies = async (searchText: string) => {
   const response = await fetch(
@@ -20,27 +20,28 @@ const retrieveMovies = async (searchText: string) => {
 export default function Movies() {
   const [searchText, setSearchText] = useState("");
   const debouncedFilter = useDebounce(searchText, 500);
-  const { data, isLoading } = useQuery(["products", debouncedFilter], () =>
-    retrieveMovies(debouncedFilter)
+  const { data, isLoading, error } = useQuery(
+    ["movies", debouncedFilter],
+    () => retrieveMovies(debouncedFilter)
   );
 
   function onSearch(value: string) {
     setSearchText(value);
   }
-
   if (isLoading) {
     return <Loading />;
   }
-  if (data && !isLoading) {
+  if (error && !isLoading) {
+    return <Error />;
+  }
+  if (data && !isLoading && !error) {
     return (
-      <Sidebar>
-        <div className="space-y-8 mx-auto">
-          <Filter onSearch={onSearch} searchText={searchText} />
-          <Statistics data={data} />
-          <Leaderboard movies={data} />
-          <MovieList movies={data} />;
-        </div>
-      </Sidebar>
+      <div className="space-y-8 mx-auto">
+        <Filter onSearch={onSearch} searchText={searchText} />
+        <Statistics data={data} />
+        <Leaderboard movies={data} />
+        <MovieList movies={data} />
+      </div>
     );
   }
 }
