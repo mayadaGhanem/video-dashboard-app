@@ -1,50 +1,52 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+▶️ run the project use : 
+ ```bash
+npm run dev
 
-Currently, two official plugins are available:
+will open in port http://localhost:5173/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+▶️ to test with Cypress 
+     npm run dev
 
-## Expanding the ESLint configuration
+     npm run cypress:open
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+▶️ to test with Jest :
 
-- Configure the top-level `parserOptions` property like this:
+    npm run jest 
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+# Movie Dashboard App
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+A React-based web app that allows users to search for movies, view detailed information. Built with React, React Query, and styled with Tailwind CSS.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Project Overview
+
+This app provides a smooth user experience for searching movies and display statistics . It fetches data from a public movie API ["https://www.freetestapi.com/api/v1/movies"] and updates search results dynamically as the user types. The app leverages React Query for efficient data fetching.
+
+## Demo screen shots
+<img width="1440" alt="‏لقطة الشاشة ٢٠٢٥-٠١-٢٧ في ٧ ٤١ ٠١ ص" src="https://github.com/user-attachments/assets/d9c13e74-92f7-4264-b275-c3dabc1f16b9" />
+<img width="1440" alt="‏لقطة الشاشة ٢٠٢٥-٠١-٢٧ في ٧ ٤١ ٠٥ ص" src="https://github.com/user-attachments/assets/7e76389e-6fee-45f7-a46a-5df6b4cf7407" />
+<img width="1440" alt="‏لقطة الشاشة ٢٠٢٥-٠١-٢٧ في ٧ ٤١ ١١ ص" src="https://github.com/user-attachments/assets/d7d51f68-b928-4500-8466-87ff4261c31b" />
+<img width="1440" alt="‏لقطة الشاشة ٢٠٢٥-٠١-٢٧ في ٧ ٤١ ١٤ ص" src="https://github.com/user-attachments/assets/da734df6-47ef-4dbf-bab2-1e0193656aa6" />
+<img width="1440" alt="‏لقطة الشاشة ٢٠٢٥-٠١-٢٧ في ٧ ٤١ ٢٠ ص" src="https://github.com/user-attachments/assets/5383caef-954b-4a1c-b946-7a0546a7cd78" />
+
+
+## Features
+
+- **Live Search**: Instant updates as you type.
+- **Loading Skeleton**: Clear messages when something goes wrong.
+- **Performance Optimized**: Uses debouncing and caching for efficient queries.
+
+## Tech Stack
+
+- **React**: UI library
+- **React Query**: Data fetching and caching
+- **Styled Components**: Tailiwnd css
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/mayadaGhanem/video-dashboard-app.git
