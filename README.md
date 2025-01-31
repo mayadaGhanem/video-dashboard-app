@@ -13,7 +13,7 @@ To get the project up and running locally, follow these steps:
 
 🧑‍💻 Testing with Jest
 
-  ` npm run dev `
+  ` npm run jest `
 
 🦸‍♂️ Testing with Cypress
 
