@@ -43,7 +43,7 @@ This app provides a smooth user experience for searching movies and display stat
 ## Features
 
 - **Live Search**: Instant updates as you type.
-- **Loading Skeleton**: Clear messages when something goes wrong.
+- **Loading Skeleton**: Displayed when loading data .
 - **Performance Optimized**: Uses debouncing and caching for efficient queries.
 
 ## Tech Stack
